@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">    
+    </ion-buttons>
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+      <small *ngIf="loginForm.get('email')?.errors?.['required']">El email es requerido.</small>
+      <small *ngIf="loginForm.get('email')?.errors?.['email']">Formato de email no válido.</small>
+    </div>
+  
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+      <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es requerida.</small>
+      <small *ngIf="loginForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+    </div>
+  
+    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
+  </form>
+  
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+         <ion-button [routerLink]="['/register']">Registrarse</ion-button>
+        </ion-buttons> 
+    <ion-buttons slot="start">
+       <ion-button>Cordoba 2024</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+ 

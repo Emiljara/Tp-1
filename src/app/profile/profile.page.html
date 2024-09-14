@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Apellido</ion-label>
+    <ion-input [(ngModel)]="user.lastname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Contraseña</ion-label>
+    <ion-input [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Direccion</ion-label>
+    <ion-input [(ngModel)]="user.adress"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Número de telefono</ion-label>
+    <ion-input [(ngModel)]="user.phone_number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Foto de perfil</ion-label>
+    <ion-avatar slot="start">
+      <img [src]="user.profilePicture">
+    </ion-avatar>
+  </ion-item>
+
+  <ion-button expand="full" (click)="updateProfile()">Actualizar perfil</ion-button>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+       <ion-button>Cordoba 2024</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>

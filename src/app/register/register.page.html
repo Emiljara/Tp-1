@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Go Back</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid">
+      <p>El nombre es requerido.</p>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+      <p>El email es requerido y debe ser válido.</p>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+      <p>La contraseña debe tener al menos 6 caracteres.</p>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="registerForm.invalid">Registrar</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+       <ion-button>Cordoba 2024</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
